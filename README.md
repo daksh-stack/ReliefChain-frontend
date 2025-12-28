@@ -1,16 +1,62 @@
-# React + Vite
+# ReliefChain Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Disaster Relief Distribution Tracker - Frontend Application
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** with Vite
+- **Socket.io** for real-time updates
+- **Axios** for API communication
 
-## React Compiler
+## Local Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# Create environment file
+cp .env.example .env
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Start dev server
+npm run dev
+```
+
+## Environment Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `VITE_API_URL` | Backend API URL | `http://localhost:5000/api` |
+| `VITE_SOCKET_URL` | Backend WebSocket URL | `http://localhost:5000` |
+
+## Deploy to Vercel
+
+### Option 1: Vercel Dashboard
+
+1. Go to [vercel.com](https://vercel.com) and sign in
+2. Click "Add New Project"
+3. Import your GitHub repository: `daksh-stack/ReliefChain-frontend`
+4. Configure environment variables:
+   - `VITE_API_URL` = `https://your-render-backend.onrender.com/api`
+   - `VITE_SOCKET_URL` = `https://your-render-backend.onrender.com`
+5. Click "Deploy"
+
+### Option 2: Vercel CLI
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Set environment variables
+vercel env add VITE_API_URL
+vercel env add VITE_SOCKET_URL
+```
+
+## Production Build
+
+```bash
+npm run build
+npm run preview
+```
